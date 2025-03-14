@@ -1,0 +1,36 @@
+# Dependency directories
+node_modules
+log
+
+# Files and Directory
+## project folders
+.npm
+.iml
+.node_repl_history
+reports
+artifacts
+
+# IntelliJ project files
+.idea
+out
+gen
+.DS_Store
+
+# vscode files
+.vscode
+
+# Logs
+yarn-debug.log*
+yarn-error.log*
+
+# Yarn Integrity file
+.yarn-integrity
+.yarn
+.yarnrc
+
+# dotenv environment variables file
+.env
+.env.*
+
+#.circleci/config.yml
+eng.traineddata
