@@ -1,5 +1,5 @@
 
-# Example Test Suite
+# Example Test Project
 [![Webdriverio API](https://img.shields.io/badge/webdriverio-docs-40b5a4)](https://webdriver.io/docs/api.html)
 
 ## Project Setup
@@ -16,16 +16,18 @@ As a rule of thumb we use the @integration tag on at least one Scenario per Feat
 ## Usage
 After checking out the template go to the project root and run:
 ```bash
-yarn install 
+pnpm install 
 ```
 ## Options
+
 
 ```bash
 --help                              output usage information
 --version                           output the version number
---browser <name>                    name of browser to use (chrome, firefox). defaults to chrome
---tags <@tagName>                   name of cucumber tags to run - Multiple TAGS usage
---steps <path>                      path to step definitions. defaults to ./step_definitions
+--browser <browsers>                name of browser to use (chrome, firefox). defaults to chrome
+--tags <@tagName>                   name of cucumber tags to run - Multiple TAGS usage (@tag1,@tag2)
+--exclude <@tagName>                name of cucumber tags to exclude - Multiple TAGS usage(@tag3,@tag5)
+--steps <path>                      path to step definitions. defaults to ./step-definitions
 --featureFiles <path>               path to feature definitions. defaults to ./features
 --pageObjects <path>                path to page objects. defaults to ./page-objects
 --sharedObjects <paths>             path to shared objects - repeatable. defaults to ./shared-objects
@@ -34,156 +36,93 @@ yarn install
 --email                             sends email reports to stakeholders
 --env <path>                        name of environment to run the framework/test in. default to dev
 --reportName <optional>             name of what the report would be called i.e. 'Automated Test'
---remoteService <optional>          which remote driver service, if any, should be used e.g. lambdatest
+--remoteService <optional>          which remote driver service, if any, should be used e.g. browserstack
 --extraSettings <optional>          further piped configs split with pipes
---updateBaselineImages              automatically update the baseline image after a failed comparison
---wdProtocol                        the switch to change the browser option from using devtools to webdriver
---browserOpen                       this leaves the browser open after the session completes, useful when debugging test. defaults to false', false
+--baselineImageUpdate               automatically update the baseline image after a failed comparison. defaults to false
+--browserOpen                       this leaves the browser open after the session completes, useful when debugging test. defaults to false
 --dlink                             the switch for projects with their test suite, within a Test folder of the repo
 --dryRun                            the effect is that Cucumber will still do all the aggregation work of looking at your feature files, loading your support code etc but without actually executing the tests
---utam                              this launches the compiler for salesforce scripts
---useProxy                          this is in-case you need to use the proxy server while testing'
+--useProxy                          this is in-case you need to use the proxy server while testing
+--reportBackup                      This is to clear the "reports" folder & keep the record in back-up folder,default value is false. While using this indicator, the name "reportBackup" needs to be added to the git ignore file 
+--reportClear                       This is to clear the "reports" folder, default value is false
 --skipTag <@tagName>                provide a tag and all tests marked with it will be skipped automatically.
 ```
 ## Options Usage
 ```bash
   --tags @get,@put || will execute the scenarios tagged with the values provided. If multiple are necessary, separate them with a comma (no blank space in between).
   --featureFiles features/utam.feature,features/getMethod.feature || provide specific feature files containing the scenarios to be executed. If multiple are necessary, separate them with a comma (no blank space in between).
+  --browser firefox,chrome || will execute the tests in the browser specified. To run tests in parallel use multiple browsers, separate them with a comma (no blank space in between).
 ```
+
+## Klassi-js JS modules
+
+To streamline test script development and ensure consistency across projects, the following JavaScript libraries are being exported from klassi-js. This approach allows these libraries to be utilized at the project level without the need for duplicate installations, thereby reducing redundancy and potential conflicts.
+
+- Exported libraries:
+
+| JS Library    | Description                                                                                                                               |
+| :------------ | :---------------------------------------------------------------------------------------------------------------------------------------- |
+| `pactum`      | A REST API testing tool for automating end-to-end, integration, contract, and component tests                                             |
+| `webdriverio` | A next-gen browser and mobile automation test framework for Node.js                                                                       |
+| `fs-extra`    | Provides extra file system methods and promise support, enhancing the native fs module                                                    |
+| `dotenv`      | Loads environment variables from a .env file into process.env to manage configuration separately from code                                |
+| `Husky`       | A tool for managing Git hooks to automate tasks like linting, testing, and code formatting before commits or pushes                       |
+| `S3Client`    | Part of the AWS SDK for JavaScript, it allows interaction with Amazon S3 for operations like uploading, downloading, and managing objects |
+
+  ```js
+  // usage klassi-js module at project level i.e.  
+  const pactumJs = require('klassi-js/klassiModule').pactum;
+
+  require('klassi-js/klassiModule').dotenv.config();
+
+  const fs = require('klassi-js/klassiModule').fs-extra;
+
+  ```
 
 ## Helpers
-OAF contains a few helper methods to help along the way, these methods are:
-```js
-// Load a URL, returning only when the <body> tag is present
-await helpers.loadPage('https://duckduckgo.com');
+klassi-js contains a few helper methods to help along the way, these methods are:
 
-// writing content to a text file
-await helpers.writeToTxtFile(filepath, output);
+| Function                                                | Description                                                                         |
+| :------------------------------------------------------ | :---------------------------------------------------------------------------------- |
+| await helpers.loadPage('url', timeout)                  | Loads the required page                                                             |
+| await helpers.writeToTxtFile(filepath, output)          | Writes content to a text file                                                       |
+| await helpers.readFromFile(filepath)                    | Reads content from a text file                                                      |
+| await helpers.currentDate()                             | Applies the current date to files                                                   |
+| await helpers.getCurrentDateTime()                      | Get current date and time                                                           |
+| await helpers.clickHiddenElement(selector, textToMatch) | Clicks an element that is not visible                                               |
+| await helpers.getRandomIntegerExcludeFirst(range)       | Get a random integer from a given range                                             |
+| await helpers.getLink(selector)                         | Get the href link from an element                                                   |
+| await helpers.waitAndClick(selector)                    | Wait until and element is visible and click it                                      |
+| await helpers.waitAndSetValue(selector, value)          | Wait until element to be in focus and set the value                                 |
+| await helpers.getElementFromFrame(frameName, selector)  | Get element from frame or frameset                                                  |
+| await helpers.readFromJson()                            | Read from a json file                                                               |
+| await helpers.writeToJson()                             | Write data to a json file                                                           |
+| await helpers.mergeJson()                               | Merge json files                                                                    |
+| await helpers.reportDateTime()                          | Reporting the current date and time                                                 |
+| await helpers.apiCall()                                 | API call for GET, PUT, POST and DELETE functionality using PactumJS for API testing |
+| await helpers.getLink()                                 | Get the href link from an element                                                   |
+| await helpers.getElementFromFrame()                     | Get element from frame or frameset                                                  |
+| await helpers.generateRandomInteger()                   | Generate random integer from a given range                                          |
+| await helpers.randomNumberGenerator()                   | Generates a random 13 digit number                                                  |
+| await helpers.reformatDateString()                      | Reformats date string into string                                                   |
+| await helpers.sortByDate()                              | Sorts results by date                                                               |
+| await helpers.filterItem()                              | Filters an item from a list of items                                                |
+| await helpers.filterItemAndClick()                      | Filters an item from a list of items and clicks on it                               |
+| await helpers.fileUpload()                              | Uploads a file from local system or project folder                                  |
 
-// reading content froma text file
-await helpers.readFromFile(filepath);
-
-// applying the current date to files
-await helpers.currentDate();
-
-// get current date and time (dd-mm-yyyy-00:00:00)
-await helpers.getCurrentDateTime();
-
-// clicks an element (or multiple if present) that is not visible, useful in situations where a menu needs a hover before a child link appears
-await helpers.clickHiddenElement(selector, textToMatch);
-
-// This method is useful for dropdown boxes as some of them have default 'Please select' option on index 0
-await helpers.getRandomIntegerExcludeFirst(range);
-
-// Get the href link from an element
-await helpers.getLink(selector);
-
-//wait until and element is visible and click it
-await helpers.waitAndClick(selector);
-
-// wait until element to be in focus and set the value
-await helpers.waitAndSetValue(selector, value);
-
-// function to get element from frame or frameset
-await helpers.getElementFromFrame(frameName, selector);
-
-// This will assert 'equal' text being returned
-await helpers.assertText(selector, expected);
-
-// This will assert text being returned includes
-await helpers.expectToIncludeText(selector, expectedText);
-
-// this asserts that the returned url is the correct one
-await helpers.assertUrl(expected);
-
-//reading from a json file
-await helpers.readFromJson();
-
-//writing data to testData json file in shared objects folder
-await helpers.write();
-
-//writing data to a json file 
-await helpers.writeToJson();
-
-//writing json data from above to UrlData json file
-await helpers.writeToUrlsData();
-
-//merging json files
-await helpers.mergeJson();
-
-//converting a json file to excel. Wrting the json data generated using above functions to an excel file. Useful to get stats of URLs loading times.
-await helpers.convertJsonToExcel();
-
-//Taking visual baselines
-await helpers.takeImage();
-
-//compare visual baselines
-await helpers.compareImage();
-
-//hide elements
-await helpers.hideElements();
-
-//show elements
-await helpers.showElements();
-
-//reporting the current date and time
-await helpers.reportDateTime();
-
-//get the start time of a run
-await helpers.getEndDateTime();
-
-//get the end time of a run
-await helpers.getStartDateTime();
-
-//API call for GET, PUT, POST and DELETE functionality using PactumJS for API testing
-await helpers.apiCall();
-
-//function for recording Accessibility logs from the test run
-await helpers.accessibilityReport();
-
-//function for recording total errors from the Accessibility test run
-await helpers.accessibilityError();
-
-//Get the href link from an element
-await helpers.getLink();
-
-//function to get element from frame or frameset
-await helpers.getElementFromFrame();
-
-//Generate random integer from a given range
-await helpers.generateRandomInteger();
-
-//this generates the full execution time for a full scenario run
-await helpers.executeTime();
-
-//Generates a random 13 digit number
-await helpers.randomNumberGenerator();
-
-//Reformats date string into string
-await helpers.reformatDateString();
-
-//Sorts results by date
-await helpers.sortByDate();
-
-//this filters an item from a list of items
-await helpers.filterItem();
-
-//this filters an item from a list of items and clicks on it
-await helpers.filterItemAndClick();
-
-//this uploads a file from local system or project folder. Helpful to automate uploading a file when there are system dialogues exist.
-await helpers.fileUpload();
-```
 
 ## Browser usage
 By default, the test run using Google Chrome/devtools protocol, to run tests using another browser locally you'll need a local selenium server running, supply the browser name along with the `--wdProtocol and --browser` switch
 
 | Browser | Example |
 | :--- | :--- |
-| Chrome | `--wdProtocol --browser chrome` |
-| Firefox | `--wdProtocol --browser firefox` |
+| Chrome | `--browser chrome` |
+| Firefox | `--browser firefox` |
 
-All other browser configurations are available via 3rd party services (i.e. lambdatest | browserstack | sourcelab)
+To run tests in parallel, supply multiple browser names separated by a comma, for example: `--browser chrome,firefox`
+
+## Remote Browser usage
+To run tests in a remote browser, you can use the `--remoteService` switch to specify the service you want to use. Currently, the supported services are: LambdaTest, BrowserStack, SauceLabs, and Selenium Standalone.
 
 Selenium Standalone Server installation
 ```bash
@@ -241,6 +180,7 @@ The same script will also verify the naming convention. Please remember that we 
 
 - **testfix/**
 - **automation/**
+- **feature/**
 
 ## License
 
