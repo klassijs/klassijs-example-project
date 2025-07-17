@@ -1,4 +1,4 @@
-const { softAssert } = require('klassijs-soft-assert');
+const { softAssert } = require('klassi-js/klassiModule').softAssert;
 let resp;
 
 module.exports = {

@@ -1,5 +1,5 @@
 Given(/^The user arrives on the duckduckgo search page$/, async () => {
-  await helpers.loadPage(env.web_url, 10);
+  await helpers.loadPage(env.base_url, 10);
 });
 
 When(/^they input (.*)$/, async (searchWord) => {

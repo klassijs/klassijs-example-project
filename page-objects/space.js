@@ -1,7 +1,7 @@
-const { a11yValidator } = require('klassijs-a11y-validator');
-const { takeImage, compareImage } = require('klassijs-visual-validation');
-const { softAssert } = require('klassijs-soft-assert');
-const { extractTextFromImage } = require('klassijs-smart-ocr');
+const { a11yValidator } = require('klassi-js/klassiModule').a11yValidator;
+const { takeImage, compareImage } = require('klassi-js/klassiModule').visualValidation;
+const { softAssert } = require('klassi-js/klassiModule').softAssert;
+const { extractTextFromImage } = require('klassi-js/klassiModule').smartOcr;
 
 let image;
 let elem;
