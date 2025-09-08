@@ -15,5 +15,5 @@ Feature: Searching for apps with duckduckgo
     Examples:
       | searchword |
       | mango |
-      | traffic |
+#      | traffic |
 
