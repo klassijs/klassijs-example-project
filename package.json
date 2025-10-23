@@ -26,7 +26,7 @@
     "============================================": "=======================================================",
     "================ NOTE": "PLEASE DO NOT MAKE ANY CHANGES TO THE SCRIPTS BELOW THIS LINE ================",
     "===========================================": "========================================================",
-    "ai": "cd node_modules/klassijs-ai && pnpm run dev",
+    "testgenie": "cd node_modules/klassijs-testgenie && pnpm run dev",
     "preinstall": "npx only-allow pnpm",
     "pkgcheck": "pnpm install --frozen-lockfile",
     "lint": "pnpm lint-staged && pnpm lint:gherkin",
@@ -40,10 +40,10 @@
   "dependencies": {
     "klassi-js": "^6.0.2",
     "klassijs-a11y-validator": "^1.0.0",
-    "klassijs-ai": "github:klassijs/klassijs-ai#feature/phase1",
-    "klassijs-astellen": "^1.0.0",
-    "klassijs-soft-assert": "^1.2.1",
-    "klassijs-visual-validation": "^1.1.0"
+    "klassijs-testgenie": "github:klassijs/klassijs-testgenie",
+    "klassijs-astellen": "^1.0.1",
+    "klassijs-soft-assert": "^1.3.0",
+    "klassijs-visual-validation": "^1.2.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
@@ -59,7 +59,7 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "klassi-ai"
+      "klassijs-testgenie"
     ],
     "ignoredBuiltDependencies": [
       "core-js",
