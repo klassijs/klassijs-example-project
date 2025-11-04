@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       klassi-js:
-        specifier: ^6.0.2
-        version: 6.0.2(@cucumber/messages@27.2.0)(@wdio/logger@9.18.0)(jiti@2.6.1)(typescript@5.9.3)
+        specifier: github:klassijs/klassi-js#develop
+        version: https://codeload.github.com/klassijs/klassi-js/tar.gz/4bdb5246df38514b3306f5c9875057a0250e82e5(@cucumber/messages@27.2.0)(@wdio/logger@9.18.0)(jiti@2.6.1)(typescript@5.9.3)
       klassijs-a11y-validator:
         specifier: ^1.0.0
         version: 1.0.0
@@ -2527,8 +2527,9 @@ packages:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
 
-  klassi-js@6.0.2:
-    resolution: {integrity: sha512-lFwEzXlN0AZcatfTPOAuUgxsxmikvnwhrvVaEUStb7BiP+0pNIeyCAJ6VwyrIpwEIhh6QrUfDdJGA7D5QUW/wg==}
+  klassi-js@https://codeload.github.com/klassijs/klassi-js/tar.gz/4bdb5246df38514b3306f5c9875057a0250e82e5:
+    resolution: {tarball: https://codeload.github.com/klassijs/klassi-js/tar.gz/4bdb5246df38514b3306f5c9875057a0250e82e5}
+    version: 6.0.2
 
   klassijs-a11y-validator@1.0.0:
     resolution: {integrity: sha512-7xOI9OgRn6yl+A6gVhFZBuW3XNgZQD9wePfaLcEf80jg98WJglXy5VX+eMIzwvpBDWEPzDV5f5BUYMq5BiGdvA==}
@@ -5463,7 +5464,7 @@ snapshots:
 
   '@types/ws@8.18.1':
     dependencies:
-      '@types/node': 20.19.23
+      '@types/node': 24.9.1
 
   '@types/yargs-parser@21.0.3': {}
 
@@ -5473,7 +5474,7 @@ snapshots:
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 20.19.23
+      '@types/node': 24.9.1
     optional: true
 
   '@vitest/pretty-format@3.2.4':
@@ -7371,7 +7372,7 @@ snapshots:
 
   kind-of@6.0.3: {}
 
-  klassi-js@6.0.2(@cucumber/messages@27.2.0)(@wdio/logger@9.18.0)(jiti@2.6.1)(typescript@5.9.3):
+  klassi-js@https://codeload.github.com/klassijs/klassi-js/tar.gz/4bdb5246df38514b3306f5c9875057a0250e82e5(@cucumber/messages@27.2.0)(@wdio/logger@9.18.0)(jiti@2.6.1)(typescript@5.9.3):
     dependencies:
       '@aws-sdk/client-s3': 3.914.0
       '@aws-sdk/client-ses': 3.914.0
@@ -7837,7 +7838,7 @@ snapshots:
   normalize-package-data@6.0.2:
     dependencies:
       hosted-git-info: 7.0.2
-      semver: 7.7.1
+      semver: 7.7.3
       validate-npm-package-license: 3.0.4
 
   normalize-path@3.0.0: {}

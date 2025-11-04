@@ -18,7 +18,7 @@
         "--use-fake-ui-for-media-stream",
         "--no-sandbox",
         "--disable-gpu",
-        "allow-file-access-from-files"
+        "--allow-file-access-from-files"
       ]
     },
     "autoHeal": true
