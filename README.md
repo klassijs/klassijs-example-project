@@ -13,6 +13,12 @@ After creating a new project, please add the project name (i.e. 'eReader-test-su
 For simplicity we have two default tags for test execution @regression and @integration.
 As a rule of thumb we use the @integration tag on at least one Scenario per Feature file.
 ```
+
+## Documentation
+
+- [Stable Locator Helper](docs/STABLE_LOCATOR.md) — Using stable locators with Klassi-JS + WDIO v9.
+- [Testing Salesforce Lightning App Builder](docs/SALESFORCE_LIGHTNING_TESTING.md) — Using this codebase to test Salesforce Lightning and Lightning App Builder applications.
+
 ## Usage
 After checking out the template go to the project root and run:
 ```bash

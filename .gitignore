@@ -34,3 +34,6 @@ yarn-error.log*
 
 #.circleci/config.yml
 eng.traineddata
+
+# self-healing fingerprints
+.artifacts/
