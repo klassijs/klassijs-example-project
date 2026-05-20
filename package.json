@@ -26,48 +26,43 @@
     "============================================": "=======================================================",
     "================ NOTE": "PLEASE DO NOT MAKE ANY CHANGES TO THE SCRIPTS BELOW THIS LINE ================",
     "===========================================": "========================================================",
-    "testgenie": "cd node_modules/klassijs-testgenie && pnpm run dev",
     "preinstall": "npx only-allow pnpm",
     "pkgcheck": "pnpm install --frozen-lockfile",
-    "lint": "pnpm lint-staged && pnpm lint:gherkin",
-    "lint:gherkin": "gherkin-lint -c node_modules/klassi-js/runtime/coding-standards/gherkin/gherkin-lint.json '**/*.feature'",
+    "lint": "pnpm lint-staged",
     "lint-branch-name": "pnpm branch-name-lint ./branchnamelinter.config.json",
+    "lint:fix": "eslint --quiet --fix --config eslint.config.js",
+    "gherkin": "cross-env GHERKLIN_FEATURE_DIR=features gherklin -c node_modules/klassi-js/runtime/coding-standards/gherkin/gherklin.config.yml",
+    "testgenie": "node ./node_modules/klassi-js/runtime/scripts/run-testgenie.js",
+    "manualcirun": "./node_modules/klassi-js/runtime/scripts/manualTrigger.sh",
+    "ciltrel": "node ./node_modules/klassi-js/index.js --disableReport --isCI --tags @release --remoteService lambdatest --extraSettings",
     "ciltuat": "node ./node_modules/klassi-js/index.js --disableReport --isCI --tags @regression --remoteService lambdatest --extraSettings",
     "ciltdev": "node ./node_modules/klassi-js/index.js --disableReport --isCI --tags @integration --remoteService lambdatest --extraSettings",
     "cilts3r": "node ./node_modules/klassi-js/index.js --disableReport --tags @s3 --remoteService lambdatest --extraSettings",
     "cilts3load": "node ./node_modules/klassi-js/index.js --disableReport --tags @s3load --remoteService lambdatest --extraSettings"
   },
   "dependencies": {
-    "klassi-js": "github:klassijs/klassi-js#develop",
-    "klassijs-a11y-validator": "^1.0.0",
-    "klassijs-testgenie": "github:klassijs/klassijs-testgenie",
-    "klassijs-astellen": "^1.0.1",
-    "klassijs-soft-assert": "^1.3.0",
-    "klassijs-visual-validation": "^1.2.3"
+    "klassi-js": "github:klassijs/klassi-js#v6.1.5",
+    "klassijs-a11y-validator": "1.1.0",
+    "klassijs-astellen": "1.0.1",
+    "klassijs-soft-assert": "1.3.0",
+    "klassijs-visual-validation": "1.2.4"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
-    "branch-name-lint": "^2.1.1",
-    "gherkin-lint": "^4.2.4",
-    "husky": "^9.1.7",
-    "lint-staged": "^15.5.2",
-    "rimraf": "^6.0.1"
+    "@commitlint/cli": "19.8.1",
+    "@commitlint/config-conventional": "19.8.1",
+    "branch-name-lint": "2.1.1",
+    "cross-env": "10.1.0",
+    "eslint": "10.0.3",
+    "gherklin": "github:klassijs/klassijs-gherkin",
+    "lint-staged": "15.5.2",
+    "rimraf": "6.1.3"
   },
   "lint-staged": {
-    "**/*.js": "eslint --quiet --fix --config node_modules/klassi-js/runtime/coding-standards/eslint/eslint.config.js"
+    "**/*.js": "eslint --quiet --fix --config eslint.config.js"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "klassijs-testgenie"
-    ],
-    "ignoredBuiltDependencies": [
-      "core-js",
-      "edgedriver",
-      "geckodriver",
-      "klassi-js",
-      "protobufjs",
-      "tesseract.js"
+      "klassi-js"
     ]
   }
 }

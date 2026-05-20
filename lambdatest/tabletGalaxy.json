@@ -1,15 +1,9 @@
 {
-  "projectName": "OAF Example Project",
-  "build": "OAF Example Project",
+  "projectName": "klassijs Example Project",
+  "build": "klassijs Example Project",
   "platform": "Android",
   "deviceName": "Galaxy Tab S9 Ultra",
   "platformVersion": "14",
   "deviceOrientation": "LANDSCAPE",
-  "buildTags": [
-    "acceptance_test",
-    "integration_test",
-    "api_test"
-  ],
-  "visual": true,
-  "autoHeal": true
+  "visual": true
 }

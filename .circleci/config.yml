@@ -1,4 +1,4 @@
-# OUP Automated Testing Tool
+# klassijs Automated Testing Tool
 # Created by Larry Goddard
 # Javascript Node CircleCI 2.0 configuration file
 #
@@ -82,27 +82,27 @@ jobs:
           command: mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
 
       - run:
-          name: Remove the old projectName Repo
-          command: rm -rf ~/klassijs/projectName
+          name: Remove the old klassijs-example-project Repo
+          command: rm -rf ~/klassijs/klassijs-example-project
 
       - run:
-          name: Checkout the projectName framework repo
-          command: git clone git@github.com:OUP/projectName.git
+          name: Checkout the klassijs-example-project framework repo
+          command: git clone git@github.com:klassijs/klassijs-example-project.git
 
       - run:
           name: Check out the working branch
-          path: ~/klassijs/projectName
+          path: ~/klassijs/klassijs-example-project
           command: git checkout ${CIRCLE_BRANCH}
 
       # Generate a robust dependency cache key using SHA-256
       - run:
           name: Generate dependency cache key
           command: |
-            if [ -f ~/klassijs/projectName/pnpm-lock.yaml ]; then
-              shasum -a 256 ~/klassijs/projectName/pnpm-lock.yaml > CACHE_KEY
+            if [ -f ~/klassijs/klassijs-example-project/pnpm-lock.yaml ]; then
+              shasum -a 256 ~/klassijs/klassijs-example-project/pnpm-lock.yaml > CACHE_KEY
             else
               echo "pnpm-lock.yaml not found, using package.json instead"
-              shasum -a 256 ~/klassijs/projectName/package.json > CACHE_KEY
+              shasum -a 256 ~/klassijs/klassijs-example-project/package.json > CACHE_KEY
             fi
 
       # Restore cache if available
@@ -112,16 +112,16 @@ jobs:
             - pnpm-cache-v1-{{ checksum "CACHE_KEY" }}
 
       - run:
-          name: Install the projectName framework dependencies
+          name: Install theklassijs-example-project framework dependencies
           command: |
             git config --global url."git@github.com:".insteadOf "https://github.com/"
-            cd ~/klassijs/projectName
+            cd ~/klassijs/klassijs-example-project
             pnpm install --no-frozen-lockfile
 
       - run:
           name: Run pre-commit checks
           command: |
-            cd ~/klassijs/projectName
+            cd ~/klassijs/klassijs-example-project
             chmod +x ./node_modules/klassi-js/runtime/scripts/precommit-checks.sh
             ./node_modules/klassi-js/runtime/scripts/precommit-checks.sh
 
@@ -132,13 +132,13 @@ jobs:
       - save_cache:
           key: pnpm-cache-v1-{{ checksum "CACHE_KEY" }}
           paths:
-            - ~/klassijs/projectName/.cache/pnpm
-            - ~/klassijs/projectName/.pnpm-store  # PNPM's global store for caching dependencies
+            - ~/klassijs/klassijs-example-project/.cache/pnpm
+            - ~/klassijs/klassijs-example-project/.pnpm-store  # PNPM's global store for caching dependencies
 
       - persist_to_workspace:
           root: ./
           paths:
-            - ./projectName
+            - ./klassijs-example-project
 
   build_and_install:
     <<: *build_install
@@ -164,9 +164,9 @@ jobs:
           name: Run integration tests
           command: |
             set +e  # run all tests even if some fail
-            cd ./projectName
+            cd ./klassijs-example-project
             
-            KLASSIJS_DRY_RUN=true KLASSIJS_EMIT_JSON=./tmp/integration-scenarios.json FORCE_COLOR=1 \
+            klassi-js_DRY_RUN=true klassi-js_EMIT_JSON=./tmp/integration-scenarios.json FORCE_COLOR=1 \
               pnpm cilt${STAGE} ${BROWSER}
             
             test -s ./tmp/integration-scenarios.json || exit 0
@@ -194,21 +194,27 @@ jobs:
       - run:
           name: Normalize JUnit XML for CircleCI (pass/skip counts)
           command: |
-            cd ./projectName
+            cd ./klassijs-example-project
             node node_modules/klassi-js/runtime/scripts/normalize-junit-for-circleci.js reports
 
+      - run:
+          name: Debug – List JUnit XML files being discovered
+          command: |
+            echo "JUnit files being discovered:"
+            findklassijs-example-project/reports -name "*.xml" -print
+
       - store_test_results:
-          path: ./projectName/reports
+          path: ./klassijs-example-project/reports
           when: always
 
       - store_artifacts:
-          path: ./projectName/artifacts/visual-regression/original/
+          path: ./klassijs-example-project/artifacts/visual-regression/original/
 
       - persist_to_workspace:
           root: ./
           paths:
-            - ./projectName/reports/*
-            - ./projectName/bash.env.*
+            - ./klassijs-example-project/reports/*
+            - ./klassijs-example-project/bash.env.*
 
       - run:
           name: sending exit status code
@@ -243,9 +249,9 @@ jobs:
           name: Run regression tests
           command: |
             set +e  # run all tests even if some fail
-            cd ./projectName
+            cd ./klassijs-example-project
             
-            KLASSIJS_DRY_RUN=true KLASSIJS_EMIT_JSON=./tmp/regression-scenarios.json FORCE_COLOR=1 \
+            klassi-js_DRY_RUN=true klassi-js_EMIT_JSON=./tmp/regression-scenarios.json FORCE_COLOR=1 \
               pnpm cilt${STAGE} ${BROWSER}
             
             test -s ./tmp/regression-scenarios.json || exit 0
@@ -273,21 +279,21 @@ jobs:
       - run:
           name: Normalize JUnit XML for CircleCI (pass/skip counts)
           command: |
-            cd ./projectName
+            cd ./klassijs-example-project
             node node_modules/klassi-js/runtime/scripts/normalize-junit-for-circleci.js reports
 
       - store_test_results:
-          path: ./projectName/reports
+          path: ./klassijs-example-project/reports
           when: always
 
       - store_artifacts:
-          path: ./projectName/artifacts/visual-regression/original/
+          path: ./klassijs-example-project/artifacts/visual-regression/original/
 
       - persist_to_workspace:
           root: ./
           paths:
-            - ./projectName/reports/*
-            - ./projectName/bash.env.*
+            - ./klassijs-example-project/reports/*
+            - ./klassijs-example-project/bash.env.*
 
   regression_test_chrome:
     <<: *regression_test_base
@@ -314,9 +320,9 @@ jobs:
           name: Run release tests
           command: |
             set +e  # run all tests even if some fail
-            cd ./projectName
+            cd ./klassijs-example-project
             
-            KLASSIJS_DRY_RUN=true KLASSIJS_EMIT_JSON=./tmp/release-scenarios.json FORCE_COLOR=1 \
+            klassi-js_DRY_RUN=true klassi-js_EMIT_JSON=./tmp/release-scenarios.json FORCE_COLOR=1 \
               pnpm cilt${STAGE} ${BROWSER}
             
             test -s ./tmp/release-scenarios.json || exit 0
@@ -344,21 +350,21 @@ jobs:
       - run:
           name: Normalize JUnit XML for CircleCI (pass/skip counts)
           command: |
-            cd ./projectName
+            cd ./klassijs-example-project
             node node_modules/klassi-js/runtime/scripts/normalize-junit-for-circleci.js reports
 
       - store_test_results:
-          path: ./projectName/reports
+          path: ./klassijs-example-project/reports
           when: always
 
       - store_artifacts:
-          path: ./projectName/artifacts/visual-regression/original/
+          path: ./klassijs-example-project/artifacts/visual-regression/original/
 
       - persist_to_workspace:
           root: ./
           paths:
-            - ./projectName/reports/*
-            - ./projectName/bash.env.*
+            - ./klassijs-example-project/reports/*
+            - ./klassijs-example-project/bash.env.*
 
   release_test_chrome:
     <<: *release_test_base
@@ -380,7 +386,7 @@ jobs:
           name: Load exit codes from all parallel nodes
           command: |
             FINAL_EXIT_CODE=0
-            for env_file in ./projectName/bash.env.*; do
+            for env_file in ./klassijs-example-project/bash.env.*; do
               [ -f "$env_file" ] || continue
             
               NODE_EXIT_CODE=$(cat "$env_file")
@@ -395,7 +401,7 @@ jobs:
       - run:
           name: Running combined html reporter & Uploading files to s3
           command: |
-            cd ./projectName/reports
+            cd ./klassijs-example-project/reports
             # Prevent framework writing to testCombine/node_0 (avoids invalid JSON path)
             export CIRCLE_NODE_INDEX=
             export CIRCLE_NODE_TOTAL=
@@ -461,11 +467,11 @@ workflows:
   nightly_run:
     triggers:
       - schedule:
-          cron: "00 16 * * *"
+          cron: "13 16 * * *"
           filters:
             branches:
               only:
-                - main
+                - develop
 
     jobs:
       - build_and_install:
