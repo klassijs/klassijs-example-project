@@ -27,10 +27,11 @@ module.exports = {
   },
   searchResult: async (searchWord) => {
     image = searchWord;
-    /** Several result titles match; the first one is enough to prove a result exists. */
     const results = await browser.$$(sharedObjects.searchData.elem.resultLink);
-    elem = results[0];
-    await softAssert(elem?.elementId, 'toNotEqual', null);
+    const resultText = (await Promise.all(results.map((result) => result.getText())))
+      .map((text) => text.trim())
+      .filter(Boolean);
+    await softAssert(resultText, 'isNotEmpty');
     await browser.pause(DELAY_1s);
   },
 };
