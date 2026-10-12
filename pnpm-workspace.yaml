@@ -10,3 +10,6 @@ allowBuilds:
   unrs-resolver: false
 
 blockExoticSubdeps: false
+
+minimumReleaseAgeExclude:
+  - zod@4.6.6

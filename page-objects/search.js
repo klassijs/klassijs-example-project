@@ -22,14 +22,15 @@ module.exports = {
     await compareImage(`${image}_1-1.png`);
     const title = await browser.getTitle();
     console.log(`checking what title being returned:- ${title}`);
-    await softAssert(title, 'tohavetext', 'privacies');
+    await softAssert(title, 'tohavetext', 'Privacies');
     await browser.keys('\uE007');
   },
   searchResult: async (searchWord) => {
     image = searchWord;
-    /** return the promise of an element to the following then */
-    elem = await browser.$(sharedObjects.searchData.elem.resultLink);
-    await softAssert(elem.elementId,'toNotEqual', null );
+    /** Several result titles match; the first one is enough to prove a result exists. */
+    const results = await browser.$$(sharedObjects.searchData.elem.resultLink);
+    elem = results[0];
+    await softAssert(elem?.elementId, 'toNotEqual', null);
     await browser.pause(DELAY_1s);
   },
 };
