@@ -1,4 +1,4 @@
-# OUP Automated Testing Tool
+# klassi Automated Testing Tool
 # Created by Larry Goddard
 # Javascript Node CircleCI 2.0 configuration file
 #
@@ -87,7 +87,7 @@ jobs:
 
       - run:
           name: Checkout the projectName framework repo
-          command: git clone git@github.com:OUP/projectName.git
+          command: git clone git@github.com:klassijs/projectName.git
 
       - run:
           name: Check out the working branch

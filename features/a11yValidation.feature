@@ -12,7 +12,6 @@ Feature: Accessibility validation using klassijs-a11y-validator
     Examples:
       | startUrl                                            |
       | https://www.oxfordmusiconline.com/grovemusic        |
-      | https://www.oup.com                                 |
       | https://app.mymathsdev.co.uk/myportal/library/9/247 |
       | https://ktestgenie.com                              |
       | https://www.oxfordartonline.com/groveart            |
@@ -25,7 +24,6 @@ Feature: Accessibility validation using klassijs-a11y-validator
       | pageUrl                                             |
       | https://www.oxfordmusiconline.com/grovemusic        |
       | https://ktestgenie.com                              |
-      | https://www.oup.com                                 |
       | https://www.oxfordmusiconline.com/grovemusic/browse |
       | https://www.oxfordartonline.com/groveart            |
       | https://app.mymathsdev.co.uk/myportal/library/9/247 |
