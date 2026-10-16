@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       klassi-js:
-        specifier: github:klassijs/klassi-js#develop
-        version: https://codeload.github.com/klassijs/klassi-js/tar.gz/bb61462d76c8014028146c6045f11402ca6fd3c1(@wdio/logger@10.0.0)(jiti@2.7.0)(yauzl@2.10.0)
+        specifier: github:klassijs/klassi-js#feature/3.0Upgrade1
+        version: https://codeload.github.com/klassijs/klassi-js/tar.gz/f8277847e5892541e7975ca818f8f967610e1271(@wdio/logger@10.0.0)(jiti@2.7.0)(yauzl@2.10.0)
       klassijs-a11y-validator:
         specifier: 1.1.0
         version: 1.1.0
@@ -2640,8 +2640,8 @@ packages:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
 
-  klassi-js@https://codeload.github.com/klassijs/klassi-js/tar.gz/bb61462d76c8014028146c6045f11402ca6fd3c1:
-    resolution: {gitHosted: true, tarball: https://codeload.github.com/klassijs/klassi-js/tar.gz/bb61462d76c8014028146c6045f11402ca6fd3c1}
+  klassi-js@https://codeload.github.com/klassijs/klassi-js/tar.gz/f8277847e5892541e7975ca818f8f967610e1271:
+    resolution: {gitHosted: true, tarball: https://codeload.github.com/klassijs/klassi-js/tar.gz/f8277847e5892541e7975ca818f8f967610e1271}
     version: 6.1.0
 
   klassijs-a11y-validator@1.1.0:
@@ -2668,7 +2668,7 @@ packages:
     resolution: {integrity: sha512-UJfbvSGob/L6bHMJZmy1kEa/LN1n/t75tzcJhNi/9ABcRXnTri5H1NPDcL+gckoTJPnEluowv2Wr3RlcHl0HyQ==}
 
   klassijs-visual-validation@https://codeload.github.com/klassijs/klassijs-visual-validation/tar.gz/a090d3e8e4589e956c97e1dce13d22238091a7df:
-    resolution: {gitHosted: true, integrity: sha512-pieSIpltaI7eZqlBsbIHOtxFn20aOUJvXUBG3da8Rd/HZkeXDqqSQ0IN/+SjOuVUJiBUWCHYn/j/2aUSsoIXjg==, tarball: https://codeload.github.com/klassijs/klassijs-visual-validation/tar.gz/a090d3e8e4589e956c97e1dce13d22238091a7df}
+    resolution: {gitHosted: true, tarball: https://codeload.github.com/klassijs/klassijs-visual-validation/tar.gz/a090d3e8e4589e956c97e1dce13d22238091a7df}
     version: 1.2.4
 
   klona@2.0.6:
@@ -3823,12 +3823,12 @@ packages:
     resolution: {integrity: sha512-EvRlUt/QqAEvXdQeRMYUfwOQsfzpDztykrG2owGEE/rBOBoYv9uF39ZzsNDh4lTFHhTr2XOZjKkYgueD12ZmGA==}
     engines: {node: '>=18.17'}
 
-  undici@7.30.0:
-    resolution: {integrity: sha512-dkrQXeHSaoamnItlYbmzG0wFYrM0ZwDxCIg0A7aKjTyyhh9svRzCNFEzV+Vm05/yehjCzjDZ31KXfGEjYSztDQ==}
+  undici@7.30.1:
+    resolution: {integrity: sha512-03KrMbjIFDWQR5RNPrSw3bd1r12JpyFQl9/yxjUbJtqkjmllqC5lFjZh6ujeuJCKr8EOQvRW872Oy/az+nLYxg==}
     engines: {node: '>=20.18.1'}
 
-  undici@8.12.1:
-    resolution: {integrity: sha512-usz3OVQBeh1LxNn0DzU0voLXMgn5CU/WUdpBsY6Ti5afNao+vTkmn4H/NxoXolc10cOqe2+YIG0Hspq2rsl64w==}
+  undici@8.12.2:
+    resolution: {integrity: sha512-XtuDWVdqTLr3NAxm2ly9/hU6kUsJOgGh1RASzMBbsw6aWCOaQzHdW+QQDfdERjfJ2V5vL5pRPa4RetO9UfivDg==}
     engines: {node: '>=22.19.0'}
 
   unicode-emoji-modifier-base@1.0.0:
@@ -4897,7 +4897,7 @@ snapshots:
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 26.6.5
+      '@types/node': 20.19.43
     optional: true
 
   '@typescript/typescript-aix-ppc64@7.0.2':
@@ -5458,7 +5458,7 @@ snapshots:
       parse5: 7.3.0
       parse5-htmlparser2-tree-adapter: 7.1.0
       parse5-parser-stream: 7.1.2
-      undici: 7.30.0
+      undici: 7.30.1
       whatwg-mimetype: 4.0.0
 
   ci-info@4.4.0: {}
@@ -6388,7 +6388,7 @@ snapshots:
 
   geckodriver@6.1.1:
     dependencies:
-      '@wdio/logger': 9.29.1
+      '@wdio/logger': 9.18.0
       '@zip.js/zip.js': 2.23.0
       decamelize: 6.0.1
       http-proxy-agent: 7.0.2
@@ -6966,7 +6966,7 @@ snapshots:
 
   kind-of@6.0.3: {}
 
-  klassi-js@https://codeload.github.com/klassijs/klassi-js/tar.gz/bb61462d76c8014028146c6045f11402ca6fd3c1(@wdio/logger@10.0.0)(jiti@2.7.0)(yauzl@2.10.0):
+  klassi-js@https://codeload.github.com/klassijs/klassi-js/tar.gz/f8277847e5892541e7975ca818f8f967610e1271(@wdio/logger@10.0.0)(jiti@2.7.0)(yauzl@2.10.0):
     dependencies:
       '@aws-sdk/client-s3': 3.1149.0
       '@aws-sdk/client-ses': 3.1149.0
@@ -8394,9 +8394,9 @@ snapshots:
 
   undici@6.29.1: {}
 
-  undici@7.30.0: {}
+  undici@7.30.1: {}
 
-  undici@8.12.1: {}
+  undici@8.12.2: {}
 
   unicode-emoji-modifier-base@1.0.0: {}
 
@@ -8450,7 +8450,7 @@ snapshots:
       '@wdio/utils': 10.0.1(yauzl@2.10.0)
       deepmerge-ts: 8.0.2
       https-proxy-agent: 7.0.6
-      undici: 8.12.1
+      undici: 8.12.2
       ws: 8.22.0
     transitivePeerDependencies:
       - bufferutil
