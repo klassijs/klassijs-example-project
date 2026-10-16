@@ -41,7 +41,7 @@
     "klassijs-a11y-validator": "1.1.0",
     "klassijs-astellen": "1.0.1",
     "klassijs-soft-assert": "1.3.0",
-    "klassijs-visual-validation": "1.2.4"
+    "klassijs-visual-validation": "github:klassijs/klassijs-visual-validation"
   },
   "devDependencies": {
     "@commitlint/cli": "21.2.3",
