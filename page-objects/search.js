@@ -18,7 +18,7 @@ module.exports = {
     await elem.addValue(searchWord);
     elem = sharedObjects.searchData.elem.leftBadge;
 
-    await takeImage(`${image}_1-1.png`, null, sharedObjects.searchData.elem.leftBadge);
+    await takeImage(`${image}_1-1.png`);
     await compareImage(`${image}_1-1.png`);
     const title = await browser.getTitle();
     console.log(`checking what title being returned:- ${title}`);
@@ -28,6 +28,8 @@ module.exports = {
   searchResult: async (searchWord) => {
     image = searchWord;
     const results = await browser.$$(sharedObjects.searchData.elem.resultLink);
+    await takeImage(`${image}_1-2.png`, null, sharedObjects.searchData.elem.leftBadge);
+    await compareImage(`${image}_1-2.png`);
     const resultText = (await results.map((result) => result.getText()))
       .map((text) => text.trim())
       .filter(Boolean);
