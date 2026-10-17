@@ -1,0 +1,24 @@
+{
+  "id": "baseline-suite",
+  "name": "Baseline suite",
+  "version": "1.0.0",
+  "cases": [
+    {
+      "id": "greeting-001",
+      "name": "Greeting",
+      "target": { "adapter": "azure-openai" },
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Reply with the exact lowercase letters hello. Do not add punctuation, quotes, or any other character."
+          }
+        ]
+      },
+      "evaluators": [
+        { "id": "regex", "type": "deterministic", "config": { "pattern": "^hello[.!]?$", "flags": "i" } }
+      ]
+    }
+  ],
+  "qualityGate": { "overall": { "minimumPassRate": 1 } }
+}

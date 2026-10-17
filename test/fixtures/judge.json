@@ -1,0 +1,30 @@
+{
+  "id": "judge-suite",
+  "name": "Judge suite",
+  "version": "1.0.0",
+  "cases": [
+    {
+      "id": "policy-001",
+      "name": "Return window",
+      "tags": ["judge"],
+      "target": { "adapter": "azure-openai" },
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "The return window is 14 days. Reply with that fact and no other claim."
+          }
+        ]
+      },
+      "evaluators": [
+        { "id": "relevance", "type": "model", "threshold": 0.5, "judge": { "adapter": "azure-openai-judge", "profile": "judge" } },
+        { "id": "completeness", "type": "model", "threshold": 0.5, "judge": { "adapter": "azure-openai-judge", "profile": "judge" } },
+        { "id": "groundedness", "type": "model", "threshold": 0.5, "judge": { "adapter": "azure-openai-judge", "profile": "judge" } },
+        { "id": "semantic-correctness", "type": "model", "threshold": 0.5, "judge": { "adapter": "azure-openai-judge", "profile": "judge" } },
+        { "id": "instruction-adherence", "type": "model", "threshold": 0.5, "judge": { "adapter": "azure-openai-judge", "profile": "judge" } },
+        { "id": "answer-quality", "type": "model", "threshold": 0.5, "judge": { "adapter": "azure-openai-judge", "profile": "judge" } }
+      ]
+    }
+  ],
+  "qualityGate": { "overall": { "minimumPassRate": 1 } }
+}
