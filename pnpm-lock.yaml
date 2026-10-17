@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       klassi-js:
-        specifier: github:klassijs/klassi-js#feature/3.0Upgrade1
-        version: https://codeload.github.com/klassijs/klassi-js/tar.gz/6c7728890f7718fdab5ccc5c4d738d2517f9117d(@wdio/logger@10.0.0)(jiti@2.7.0)(yauzl@2.10.0)
+        specifier: github:klassijs/klassi-js#develop
+        version: https://codeload.github.com/klassijs/klassi-js/tar.gz/2d33c613734d773fba4063ae4e11cfd662a5bd39(@wdio/logger@10.0.0)(jiti@2.7.0)(yauzl@2.10.0)
       klassijs-a11y-validator:
         specifier: 1.1.0
         version: 1.1.0
@@ -2643,8 +2643,8 @@ packages:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
 
-  klassi-js@https://codeload.github.com/klassijs/klassi-js/tar.gz/6c7728890f7718fdab5ccc5c4d738d2517f9117d:
-    resolution: {gitHosted: true, integrity: sha512-WPdg0aAxZUpQyqK52/RdhTtfTcayhGTd08dAgPnJdvmoZchTDCcciNuD52V7i6Jj3hlO0N7vmTc0y9KwVTcmgg==, tarball: https://codeload.github.com/klassijs/klassi-js/tar.gz/6c7728890f7718fdab5ccc5c4d738d2517f9117d}
+  klassi-js@https://codeload.github.com/klassijs/klassi-js/tar.gz/2d33c613734d773fba4063ae4e11cfd662a5bd39:
+    resolution: {gitHosted: true, integrity: sha512-0+ogijaXax9v9GHezrOr+I2q/3jz7itOAebp28YAtuLVoSjwYsyHViGXKPGybf/5JuezGMJ+Fm5vNGmIaHApoQ==, tarball: https://codeload.github.com/klassijs/klassi-js/tar.gz/2d33c613734d773fba4063ae4e11cfd662a5bd39}
     version: 6.1.0
 
   klassijs-a11y-validator@1.1.0:
@@ -6971,7 +6971,7 @@ snapshots:
 
   kind-of@6.0.3: {}
 
-  klassi-js@https://codeload.github.com/klassijs/klassi-js/tar.gz/6c7728890f7718fdab5ccc5c4d738d2517f9117d(@wdio/logger@10.0.0)(jiti@2.7.0)(yauzl@2.10.0):
+  klassi-js@https://codeload.github.com/klassijs/klassi-js/tar.gz/2d33c613734d773fba4063ae4e11cfd662a5bd39(@wdio/logger@10.0.0)(jiti@2.7.0)(yauzl@2.10.0):
     dependencies:
       '@aws-sdk/client-s3': 3.1149.0
       '@aws-sdk/client-ses': 3.1149.0
