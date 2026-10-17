@@ -22,7 +22,7 @@ module.exports = {
     await compareImage(`${image}_1-1.png`);
     const title = await browser.getTitle();
     console.log(`checking what title being returned:- ${title}`);
-    await softAssert(title, 'tohavetext', 'Privacy');
+    await softAssert(title, 'tohavetext', 'Privacies');
     await browser.keys('\uE007');
   },
   searchResult: async (searchWord) => {
