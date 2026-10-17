@@ -10,7 +10,7 @@ importers:
     dependencies:
       klassi-js:
         specifier: github:klassijs/klassi-js#feature/3.0Upgrade1
-        version: https://codeload.github.com/klassijs/klassi-js/tar.gz/6a6b93db0c41ff3584888350cd8d14dac3472ce6(@wdio/logger@10.0.0)(jiti@2.7.0)(yauzl@2.10.0)
+        version: https://codeload.github.com/klassijs/klassi-js/tar.gz/70318c5df86a6fb357d9a0a3470784fbcade8092(@wdio/logger@10.0.0)(jiti@2.7.0)(yauzl@2.10.0)
       klassijs-a11y-validator:
         specifier: 1.1.0
         version: 1.1.0
@@ -1027,6 +1027,9 @@ packages:
 
   argparse@2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
+
+  argparse@3.0.3:
+    resolution: {integrity: sha512-Sn98ftV3KfsO8xfLPHG6oT8y+b0yvbrLgZjgPDXsharNY15tTAjqIsIju4S32nl6/iEUNNE4v+yL2Zhm8ooP3w==}
 
   argue-cli@3.2.0:
     resolution: {integrity: sha512-VipTB0gXgGIFO2Rg9yEVN5wLt2AurJcZqDbgmYSwPwsykhLrQhs240/bfceev4w68lI8JshoOJIk9uW7tFzROw==}
@@ -2590,8 +2593,8 @@ packages:
     resolution: {integrity: sha512-SFNOvSJ+Dgf/9An904Yx+CgSlIPCkIpao4qo51lpee25TIRejdH3rhR4EZMGoNx3/TP3O+wzWuiTFl4sqbltzA==}
     hasBin: true
 
-  js-yaml@5.4.3:
-    resolution: {integrity: sha512-yzzNtgczwgoVHNigCyKTXcQJU4Y8t/ikU4UxXW0BvrLfHTGWZhsNcOT2s/a7vn81/4KqVnNmHjaUEPlvWnNwVw==}
+  js-yaml@5.5.0:
+    resolution: {integrity: sha512-paNr4LFIFPjeeSmwNYdrb8FafLLG/Cr2Af3GjbsHJ5CxIjH4r0c2emlmRdAtpPAieP1gRVzk6buBbVP5gBMGAg==}
     hasBin: true
 
   json-parse-better-errors@1.0.2:
@@ -2640,8 +2643,8 @@ packages:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
 
-  klassi-js@https://codeload.github.com/klassijs/klassi-js/tar.gz/6a6b93db0c41ff3584888350cd8d14dac3472ce6:
-    resolution: {gitHosted: true, integrity: sha512-yqqd2y4gtu5359wiCr/hR24ctmum2jUtyEQZPfv6C+P46qmsEULMSMb6yoKhNpuINsmtl/2k+K/iAG+V9pWt+A==, tarball: https://codeload.github.com/klassijs/klassi-js/tar.gz/6a6b93db0c41ff3584888350cd8d14dac3472ce6}
+  klassi-js@https://codeload.github.com/klassijs/klassi-js/tar.gz/70318c5df86a6fb357d9a0a3470784fbcade8092:
+    resolution: {gitHosted: true, integrity: sha512-bF8W/VMmJLWNbqMcul2KBOpxvyoeC2cV4hakc5ikIiS7RPudY9lJdymtw4Yk1Y8URDziB+VEs7R//9QBBuatGA==, tarball: https://codeload.github.com/klassijs/klassi-js/tar.gz/70318c5df86a6fb357d9a0a3470784fbcade8092}
     version: 6.1.0
 
   klassijs-a11y-validator@1.1.0:
@@ -5201,6 +5204,8 @@ snapshots:
 
   argparse@2.0.1: {}
 
+  argparse@3.0.3: {}
+
   argue-cli@3.2.0: {}
 
   aria-query@5.3.2: {}
@@ -5703,7 +5708,7 @@ snapshots:
   cosmiconfig@10.0.1:
     dependencies:
       env-paths: 2.2.1
-      js-yaml: 5.4.3
+      js-yaml: 5.5.0
 
   cosmiconfig@9.0.2(typescript@7.0.2):
     dependencies:
@@ -6921,9 +6926,9 @@ snapshots:
     dependencies:
       argparse: 2.0.1
 
-  js-yaml@5.4.3:
+  js-yaml@5.5.0:
     dependencies:
-      argparse: 2.0.1
+      argparse: 3.0.3
 
   json-parse-better-errors@1.0.2: {}
 
@@ -6966,7 +6971,7 @@ snapshots:
 
   kind-of@6.0.3: {}
 
-  klassi-js@https://codeload.github.com/klassijs/klassi-js/tar.gz/6a6b93db0c41ff3584888350cd8d14dac3472ce6(@wdio/logger@10.0.0)(jiti@2.7.0)(yauzl@2.10.0):
+  klassi-js@https://codeload.github.com/klassijs/klassi-js/tar.gz/70318c5df86a6fb357d9a0a3470784fbcade8092(@wdio/logger@10.0.0)(jiti@2.7.0)(yauzl@2.10.0):
     dependencies:
       '@aws-sdk/client-s3': 3.1149.0
       '@aws-sdk/client-ses': 3.1149.0
