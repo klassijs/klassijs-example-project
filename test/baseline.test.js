@@ -3,7 +3,7 @@ const { mkdtemp, readFile } = require('node:fs/promises');
 const { tmpdir } = require('node:os');
 const path = require('node:path');
 const test = require('node:test');
-const { root, runKlassi } = require('./run-klassi');
+const { root, runKlassi } = require('klassi-js/runtime/scripts/run-klassi');
 
 const suite = path.join(root, 'test/fixtures/baseline.json');
 
