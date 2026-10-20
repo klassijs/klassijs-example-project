@@ -19,6 +19,7 @@
     "pnpm": ">=9"
   },
   "scripts": {
+    "klassi-js": "github:klassijs/klassi-js#develop",
     "predev1": "pnpm delete-dev",
     "delete-dev": "rimraf ./reports ./artifacts ./visual-regression-baseline",
     "dev": "node ./node_modules/klassi-js/index.js --disableReport --tags",
@@ -28,6 +29,7 @@
     "================ NOTE": "PLEASE DO NOT MAKE ANY CHANGES TO THE SCRIPTS BELOW THIS LINE ================",
     "===========================================": "========================================================",
     "preinstall": "npx only-allow pnpm",
+    "postinstall": "node ./node_modules/klassi-js/runtime/scripts/postinstall.js",
     "pkgcheck": "pnpm install --frozen-lockfile",
     "import:wdrive": "node ./node_modules/klassi-js/runtime/scripts/import-wdrive.js",
     "lint": "pnpm lint-staged && pnpm lint:gherkin",
