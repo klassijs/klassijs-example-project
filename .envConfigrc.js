@@ -18,7 +18,7 @@ module.exports = {
 
     "uat": {
       "envName": "UAT",
-      "base_url": ""
+      "base_url": "https://klassi.co.uk"
     }
   },
 }
